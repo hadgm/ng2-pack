@@ -1,0 +1,40 @@
+{
+  "name": "ng2-pack",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "typings": "typings",
+    "start": "webpack-dev-server",
+    "prebuild": "rimraf build",
+    "build": "webpack",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Ha Pham <mahpahh@gmail.com> (http://mahpahh.com)",
+  "license": "ISC",
+  "dependencies": {
+    "angular2": "^2.0.0-beta.11",
+    "core-js": "^2.2.1",
+    "es6-promise": "^3.1.2",
+    "es6-shim": "^0.35.0",
+    "reflect-metadata": "^0.1.3",
+    "rxjs": "^5.0.0-beta.2",
+    "ts-loader": "^0.8.1",
+    "typescript": "^1.8.9",
+    "webpack": "^1.12.14",
+    "zone.js": "^0.6.4"
+  },
+  "devDependencies": {
+    "css-loader": "^0.23.1",
+    "file-loader": "^0.8.5",
+    "node-sass": "^3.4.2",
+    "rimraf": "^2.5.2",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.0",
+    "ts-loader": "^0.8.1",
+    "webpack": "^1.12.14",
+    "webpack-dev-server": "^1.14.1",
+    "webpack-merge": "^0.8.4"
+  }
+}
