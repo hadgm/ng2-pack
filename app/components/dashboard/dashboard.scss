@@ -1,0 +1,23 @@
+.top-heroes {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hero-box {
+  background: hsl(0, 0%, 100%);
+  flex-grow: 1;
+  box-shadow: 0 1px 2px hsla(0, 0%, 0%, 0.15);
+  cursor: pointer;
+
+  &:hover {
+    box-shadow: 0 1px 5px hsla(0, 0%, 0%, 0.2);
+  }
+
+  &:not(:last-child) {
+    margin-right: 1em;
+  }
+
+  h4 {
+    text-align: center;
+  }
+}

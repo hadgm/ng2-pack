@@ -41,7 +41,7 @@ const commonConfig = {
       },
       {
         test: /\.tsx?$/,
-        loaders: ['ts-loader'],
+        loaders: ['awesome-typescript-loader'],
       },
       {
         test: /\.(png|jpg|jpeg|gif|svg|woff|woff2|ttf|eot)(\?v=\d+\.\d+\.\d+)?$/,
