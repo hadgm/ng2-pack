@@ -1,0 +1,9 @@
+<div>
+  <div>
+    <input type="text" #term (keyup)="search(term.value)">
+  </div>
+  <ul>
+    <li *ngFor="#item of items | async">{{item}}</li>
+  </ul>
+
+</div>

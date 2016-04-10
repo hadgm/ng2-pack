@@ -4,6 +4,7 @@ import {HeroService} from './../../services/hero.service.ts';
 import {HeroesComponent} from './../heroes/heroes.component.ts';
 import {DashboardComponent} from './../dashboard/dashboard.component.ts';
 import {HeroEditorComponent} from './../hero-editor/hero-editor.component.ts';
+import {WikiComponent} from './../wiki/wiki.component.ts'
 // http providers come to the party
 import {HTTP_PROVIDERS} from 'angular2/http';
 
@@ -13,6 +14,7 @@ import {HTTP_PROVIDERS} from 'angular2/http';
   styles: [require('./app.scss')],
   directives: [
     ROUTER_DIRECTIVES,
+    WikiComponent,
   ],
   providers: [
     HeroService,
