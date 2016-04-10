@@ -18,7 +18,7 @@ export class DashboardComponent implements OnInit {
   public ngOnInit() {
     this.heroService.getHeroes()
       .then(data => {
-        data = data.sort((h1, h2) => h1.score - h2.score);
+        data = data.sort((h1, h2) => h2.score - h1.score);
         this.topHeroes = data.slice(0, 5);
       });
   }

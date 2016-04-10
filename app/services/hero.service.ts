@@ -11,8 +11,11 @@ export class HeroService {
     const createHero = (name: string): app.IHero => ({
       _id: uuid.v4(),
       name,
-      score: Math.random() * 1000,
+      score: Math.round(Math.random() * 10),
     });
+
+    console.log('instance');
+
 
     this.heroes = heroNames.map(createHero);
   }

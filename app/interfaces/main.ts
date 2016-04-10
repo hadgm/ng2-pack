@@ -6,6 +6,7 @@ declare namespace app {
     _id: string;
     name: string;
     score?: number;
+    title?: string;
   }
 
   interface ICampaign {

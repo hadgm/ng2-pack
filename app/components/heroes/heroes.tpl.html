@@ -2,10 +2,9 @@
   <ul class="hero-list">
     <li *ngFor="#hero of heroes">
       <a [routerLink]="['HeroEditor', {id: hero._id}]">
+        <span class="muted">{{hero.score}}</span>
         <strong>{{hero.name}}</strong> <span class="muted">{{hero._id}}</span>
       </a>
     </li>
   </ul>
 </div>
-
-<hero-editor [hero]="selectedHero"></hero-editor>

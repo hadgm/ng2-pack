@@ -1,8 +1,26 @@
 <div *ngIf="hero">
-  <h2>{{hero.name}}</h2>
-  <div><label for="">{{hero._id}}</label></div>
-  <div>
-    <label for="name"></label>
-    <input type="text" [(ngModel)]="hero.name">
-  </div>
+  <form>
+    <header>
+      <h2>{{hero.name}} - <span class="muted">{{hero._id}}</span></h2>
+    </header>
+    <div class="input-container">
+      <label for="name">Name</label>
+      <input type="text" [(ngModel)]="hero.name" required>
+    </div>
+    <div class="input-container">
+      <label for="">Title</label>
+      <input type="text">
+    </div>
+    <div class="input-container">
+      <label for=""></label>
+      <select name="" id="" [(ngModel)]="hero.score">
+        <option [value]="score" *ngFor="#score of scoreRange">{{score}}</option>
+      </select>
+    </div>
+
+    <footer>
+      <button type="submit">Update</button>
+    </footer>
+  </form>
+
 </div>
