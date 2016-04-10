@@ -4,6 +4,8 @@ import {HeroService} from './../../services/hero.service.ts';
 import {HeroesComponent} from './../heroes/heroes.component.ts';
 import {DashboardComponent} from './../dashboard/dashboard.component.ts';
 import {HeroEditorComponent} from './../hero-editor/hero-editor.component.ts';
+// http providers come to the party
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 @Component({
   selector: 'app',
@@ -15,6 +17,7 @@ import {HeroEditorComponent} from './../hero-editor/hero-editor.component.ts';
   providers: [
     HeroService,
     ROUTER_PROVIDERS,
+    HTTP_PROVIDERS,
   ],
 })
 @RouteConfig([

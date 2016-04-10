@@ -18,6 +18,7 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
 export class HeroesComponent implements OnInit {
   public selectedHero: app.IHero;
   public heroes: Array<app.IHero>;
+  public errorMessage;
 
   constructor(
     private heroService: HeroService
@@ -29,6 +30,11 @@ export class HeroesComponent implements OnInit {
 
   private getHeroes() {
     this.heroService.getHeroes()
-      .then(data => this.heroes = data);
+      .subscribe(
+        heroes => {
+          this.heroes = heroes;
+        },
+        error => this.errorMessage = <any>error
+      );
   }
 }

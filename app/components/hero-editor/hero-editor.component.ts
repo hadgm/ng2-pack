@@ -30,9 +30,6 @@ export class HeroEditorComponent implements OnInit {
     let heroId = this.routeParams.get('id');
 
     this.heroService.getHeroById(heroId)
-      .then(data => {
-        this.hero = data;
-      })
-      .catch(console.error.bind(console));
+      .subscribe(data => this.hero = data);
   }
 }

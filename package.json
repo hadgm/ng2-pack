@@ -8,7 +8,8 @@
     "start": "webpack-dev-server",
     "prebuild": "rimraf build",
     "build": "webpack",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "data": "json-server server/data.json --id _id"
   },
   "keywords": [],
   "author": "Ha Pham <mahpahh@gmail.com> (http://mahpahh.com)",
@@ -27,6 +28,7 @@
   },
   "devDependencies": {
     "awesome-typescript-loader": "^0.16.2",
+    "core-js": "^2.2.2",
     "css-loader": "^0.23.1",
     "file-loader": "^0.8.5",
     "node-sass": "^3.4.2",

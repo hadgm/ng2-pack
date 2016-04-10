@@ -1,33 +1,32 @@
 import {Injectable} from 'angular2/core';
-import * as uuid from 'node-uuid';
+import {Http, Response} from 'angular2/http';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class HeroService {
-  private heroes: Array<app.IHero>;
+  private endpoint: string = '//localhost:3000/heroes';
 
-  constructor() {
-    const heroNames = ['Mr. Nice', 'Narco', 'Bombasto', 'Celeritas', 'Magneta', 'RubberMan', 'Dynama', 'Dr IQ', 'Magma', 'Tornado'];
-
-    const createHero = (name: string): app.IHero => ({
-      _id: uuid.v4(),
-      name,
-      score: Math.round(Math.random() * 10),
-    });
-
-    console.log('instance');
-
-
-    this.heroes = heroNames.map(createHero);
-  }
+  constructor(
+    private http: Http
+  ) {}
 
   public getHeroes() {
-    return new Promise<app.IHero[]>((resolve, reject) => {
-      setTimeout(() => resolve(this.heroes), 300);
-    });
+    return this.http.get(this.endpoint) // return an observable
+      .map(res => {
+        return res.json() as app.IHero[];
+      })
+      .catch(this.handleError);
   }
 
   public getHeroById(id) {
-    return this.getHeroes()
-      .then(data => data.filter(({_id}) => _id === id)[0]);
+    return this.http.get(this.endpoint + '/' + id)
+      .map(res => res.json() as app.IHero)
+      .catch(this.handleError);
   }
+
+  private handleError(err: Response) {
+    console.error(err);
+    return Observable.throw(err.json().error || 'Server error');
+  }
+
 }

@@ -17,10 +17,14 @@ export class DashboardComponent implements OnInit {
 
   public ngOnInit() {
     this.heroService.getHeroes()
-      .then(data => {
-        data = data.sort((h1, h2) => h2.score - h1.score);
-        this.topHeroes = data.slice(0, 5);
-      });
+      .subscribe(
+        data => {
+          data = data.sort((h1, h2) => h2.score - h1.score);
+          this.topHeroes = data.slice(0, 5);
+        },
+
+        error => console.log(error)
+       );
   }
 
   public goToDetail(hero) {
