@@ -1,5 +1,5 @@
 <div *ngIf="hero">
-  <form>
+  <form (submit)="onSave()">
     <header>
       <h2>{{hero.name}} - <span class="muted">{{hero._id}}</span></h2>
     </header>

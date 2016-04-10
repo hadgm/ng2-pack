@@ -19,7 +19,8 @@ const range = (from, to, step = 1) => {
 })
 export class HeroEditorComponent implements OnInit {
   public hero: app.IHero;
-  public scoreRange = range(0, 10);
+  public scoreRange = range(0, 11);
+  public errorMessage;
 
   constructor(
     private heroService: HeroService,
@@ -31,5 +32,15 @@ export class HeroEditorComponent implements OnInit {
 
     this.heroService.getHeroById(heroId)
       .subscribe(data => this.hero = data);
+  }
+
+  public onSave() {
+    console.log('adsf');
+
+    this.heroService.updateHero(this.hero)
+      .subscribe(
+        hero  => this.hero = hero,
+        error =>  this.errorMessage = <any>error
+      );
   }
 }
