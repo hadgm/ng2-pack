@@ -12,12 +12,14 @@ module.exports = function(config) {
     frameworks: ['jasmine'],
 
     files: [
+      'polyfills.ts',
       'test.bundle.js',
     ],
 
     exclude: [],
 
     preprocessors: {
+      'polyfills.ts': ['webpack', 'sourcemap'],
       'test.bundle.js': ['webpack', 'sourcemap'],
     },
 
@@ -49,7 +51,7 @@ module.exports = function(config) {
     },
 
     reporters: ['spec'],
-    browsers: ['PhantomJS', 'Chrome'],
+    browsers: ['PhantomJS'],
 
     plugins: [
       'karma-jasmine',
