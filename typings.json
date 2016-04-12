@@ -5,6 +5,7 @@
     "node": "registry:dt/node#4.0.0+20160330064709"
   },
   "dependencies": {
-    "node-uuid": "registry:npm/node-uuid#1.4.0+20160224202522"
+    "node-uuid": "registry:npm/node-uuid#1.4.0+20160224202522",
+    "webpack": "registry:npm/webpack#1.12.9+20160219013405"
   }
 }

@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <input type="text" #term (keyup)="search(term.value)">
+  </div>
+  <ul>
+    <li *ngFor="#item of items | async">
+      <a hover-zoom="1.5" [attr.href]="item.url" title="{{item.description}}">{{item.name}}</a>
+    </li>
+  </ul>
+
+</div>
