@@ -1,5 +1,12 @@
 import {Jsonp, URLSearchParams} from 'angular2/http';
 import {Injectable} from 'angular2/core';
+import {Observable} from 'rxjs';
+
+export interface IWikiItem {
+  name: string;
+  url: string;
+  description: string;
+}
 
 @Injectable()
 export class WikiService {
@@ -9,7 +16,7 @@ export class WikiService {
     private jsonp: Jsonp
   ){}
 
-  public search(term: string) {
+  public search(term: string): Observable<IWikiItem[]> {
     console.log(term);
     let params = new URLSearchParams();
     let vars = {
@@ -22,6 +29,15 @@ export class WikiService {
     Object.keys(vars).forEach(key => params.set(key, vars[key]));
 
     return this.jsonp.get(this.wikiUrl, {search: params})
-      .map(response => <string[]>response.json()[1]);
+      .map(response => {
+        let data = response.json();
+        return data[1].map((name, index) => {
+          return <IWikiItem> {
+            name,
+            description: data[2][index],
+            url: data[3][index],
+          };
+        });
+      });
   }
 }
