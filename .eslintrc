@@ -1,0 +1,9 @@
+{
+  "ecmaFeatures": {
+    "modules": true,
+    "blockBindings": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
+  }
+}
