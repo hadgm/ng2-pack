@@ -3,7 +3,7 @@ import {
   OnInit,
 } from 'angular2/core';
 import {RouteParams} from 'angular2/router';
-import {HeroService} from './../../services/hero.service.ts';
+import {HeroService, Hero} from './../../services/hero';
 
 const range = (from, to, step = 1) => {
   let arr = [];
@@ -18,7 +18,7 @@ const range = (from, to, step = 1) => {
   templateUrl: require('./hero-editor.tpl.html'),
 })
 export class HeroEditorComponent implements OnInit {
-  public hero: app.IHero;
+  public hero: Hero;
   public scoreRange = range(0, 11);
   public errorMessage;
 

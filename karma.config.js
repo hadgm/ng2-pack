@@ -1,6 +1,6 @@
 var path = require('path');
 const PATH = {
-  app: path.resolve(__dirname, 'app'),
+  app: path.resolve(__dirname, 'src'),
   vendor: path.resolve(__dirname, 'vendors.ts'),
   polyfill: path.resolve(__dirname, 'polyfills.ts'),
   build: path.resolve(__dirname, 'build'),

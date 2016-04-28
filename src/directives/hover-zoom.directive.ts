@@ -19,11 +19,11 @@ export class HoverZoom {
     this.el.style.position = 'absolute';
   }
 
-  private handleMouseEnter() {
+  protected handleMouseEnter() {
     this.setZoom(this.scale);
   }
 
-  private handleMouseLeave() {
+  protected handleMouseLeave() {
     this.setZoom(1);
   }
 

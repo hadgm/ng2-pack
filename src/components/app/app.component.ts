@@ -1,12 +1,11 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
-import {HeroService} from './../../services/hero.service.ts';
-import {HeroesComponent} from './../heroes/heroes.component.ts';
-import {DashboardComponent} from './../dashboard/dashboard.component.ts';
-import {HeroEditorComponent} from './../hero-editor/hero-editor.component.ts';
-import {WikiComponent} from './../wiki/wiki.component.ts'
-// http providers come to the party
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {HeroService} from './../../services/hero';
+
+import {DashboardComponent} from './../dashboard';
+import {WikiComponent} from './../wiki/wiki.component.ts';
+import {LoginComponent} from './../login';
 
 @Component({
   selector: 'app',
@@ -24,20 +23,15 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 })
 @RouteConfig([
   {
-    path: '/heroes',
-    name: 'Heroes',
-    component: HeroesComponent,
-  },
-  {
     path: '/',
     name: 'Dashboard',
     component: DashboardComponent,
     useAsDefault: true,
   },
   {
-    path: '/hero/:id',
-    name: 'HeroEditor',
-    component: HeroEditorComponent,
+    path: '/login',
+    name: 'Login',
+    component: LoginComponent,
   }
 ])
 export class AppComponent {

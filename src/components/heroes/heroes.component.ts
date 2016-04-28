@@ -3,7 +3,7 @@ import {
   OnInit,
 } from 'angular2/core';
 import {HeroEditorComponent} from '../hero-editor/hero-editor.component.ts';
-import {HeroService} from './../../services/hero.service.ts';
+import {HeroService, Hero} from './../../services/hero';
 import {ROUTER_DIRECTIVES} from 'angular2/router';
 
 @Component({
@@ -16,8 +16,8 @@ import {ROUTER_DIRECTIVES} from 'angular2/router';
   ],
 })
 export class HeroesComponent implements OnInit {
-  public selectedHero: app.IHero;
-  public heroes: Array<app.IHero>;
+  public selectedHero: Hero;
+  public heroes: Array<Hero>;
   public errorMessage;
 
   constructor(

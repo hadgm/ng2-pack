@@ -1,6 +1,7 @@
 import {Component, OnInit} from 'angular2/core';
-import {HeroService} from './../../services/hero.service.ts';
+import {HeroService} from './../../services/hero';
 import {Router} from 'angular2/router';
+import {Hero} from './../../services/hero/interface.ts';
 
 @Component({
   selector: 'dashboard',
@@ -8,7 +9,7 @@ import {Router} from 'angular2/router';
   styles: [require('./dashboard.scss')],
 })
 export class DashboardComponent implements OnInit {
-  public topHeroes: app.IHero[];
+  public topHeroes: Hero[];
 
   constructor(
     private heroService: HeroService,

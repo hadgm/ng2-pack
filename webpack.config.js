@@ -6,7 +6,7 @@ const webpack = require('webpack');
 const TARGET = process.env.NPM_LIFECYCLE_EVENT;
 
 const PATH = {
-  app: path.resolve(__dirname, 'app'),
+  app: path.resolve(__dirname, 'src'),
   vendor: path.resolve(__dirname, 'vendors.ts'),
   polyfill: path.resolve(__dirname, 'polyfills.ts'),
   build: path.resolve(__dirname, 'build'),
@@ -66,9 +66,8 @@ if (!TARGET || TARGET === 'start') {
       inline: true,
       progress: true,
       stats: 'errors-only',
-
       host: process.env.HOST,
-      port: process.env.PORT,
+      port: process.env.PORT || 8000,
     },
 
     plugins: [

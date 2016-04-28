@@ -1,6 +1,7 @@
 import {Injectable} from 'angular2/core';
 import {Http, Response, Headers, RequestOptions} from 'angular2/http';
 import {Observable} from 'rxjs/Observable';
+import {Hero} from './interface';
 
 @Injectable()
 export class HeroService {
@@ -13,19 +14,19 @@ export class HeroService {
   public getHeroes() {
     return this.http.get(this.endpoint) // return an observable
       .map(res => {
-        return res.json() as app.IHero[];
+        return res.json() as Hero[];
       })
       .catch(this.handleError);
   }
 
   public getHeroById(id) {
     return this.http.get(this.endpoint + '/' + id)
-      .map(res => res.json() as app.IHero)
+      .map(res => res.json() as Hero)
       .do(data => console.info('DATA: ', JSON.stringify(data)))
       .catch(this.handleError);
   }
 
-  public updateHero(data): Observable<app.IHero> {
+  public updateHero(data): Observable<Hero> {
     if (!data._id) {
       Observable.throw('No hero id');
     }
@@ -36,7 +37,7 @@ export class HeroService {
     });
 
     return this.http.put(this.endpoint + '/' + data._id, body, option)
-      .map(res => res.json() as app.IHero)
+      .map(res => res.json() as Hero)
       .catch(this.handleError);
   }
 
