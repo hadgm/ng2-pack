@@ -13,14 +13,16 @@ module.exports = function(config) {
 
     files: [
       'polyfills.ts',
-      'test.bundle.js',
+      'src/**/*.spec.ts',
+      {pattern: 'src/**/!(*spec).ts', watched: true, included: false},
+      {pattern: 'src/**/*.tpl.html', watched: true, included: false},
     ],
 
     exclude: [],
 
     preprocessors: {
       'polyfills.ts': ['webpack', 'sourcemap'],
-      'test.bundle.js': ['webpack', 'sourcemap'],
+      'src/**/*.spec.ts': ['webpack', 'sourcemap'],
     },
 
     webpack: {
@@ -50,13 +52,16 @@ module.exports = function(config) {
       },
     },
 
+    webpackServer: {
+      quiet: true,
+    },
+
     reporters: ['spec'],
-    browsers: ['PhantomJS'],
+    browsers: ['Chrome'],
 
     plugins: [
       'karma-jasmine',
       'karma-spec-reporter',
-      'karma-phantomjs-launcher',
       'karma-chrome-launcher',
       'karma-sourcemap-loader',
       'karma-webpack',

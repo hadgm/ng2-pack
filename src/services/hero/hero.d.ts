@@ -1,11 +1,11 @@
-export interface Hero {
+interface Hero {
   _id: string;
   name: string;
   score?: number;
   title?: string;
 }
 
-export interface Campaign {
+interface Campaign {
   attenders: Array<Hero>;
 }
 

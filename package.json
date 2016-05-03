@@ -9,7 +9,7 @@
     "prebuild": "rimraf build",
     "build": "webpack",
     "test": "karma start karma.config.js",
-    "data": "json-server server/data.json --id _id"
+    "postinstall": "typings i"
   },
   "keywords": [],
   "author": "Ha Pham <mahpahh@gmail.com> (http://mahpahh.com)",
@@ -31,12 +31,10 @@
     "karma": "^0.13.22",
     "karma-chrome-launcher": "^0.2.3",
     "karma-jasmine": "^0.3.8",
-    "karma-phantomjs-launcher": "^1.0.0",
     "karma-sourcemap-loader": "^0.3.7",
     "karma-spec-reporter": "0.0.26",
     "karma-webpack": "^1.7.0",
     "node-sass": "^3.4.2",
-    "phantomjs-prebuilt": "^2.1.7",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.2",
     "sass-loader": "^3.2.0",

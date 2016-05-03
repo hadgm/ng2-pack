@@ -2,10 +2,8 @@ import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
 import {HeroService} from './../../services/hero';
-
-import {DashboardComponent} from './../dashboard';
-import {WikiComponent} from './../wiki/wiki.component.ts';
-import {LoginComponent} from './../login';
+import {LoginComponent} from './../login/login-component.ts';
+import {DashboardComponent} from './../dashboard/dashboard-component.ts';
 
 @Component({
   selector: 'app',
@@ -13,7 +11,6 @@ import {LoginComponent} from './../login';
   styles: [require('./app.scss')],
   directives: [
     ROUTER_DIRECTIVES,
-    WikiComponent,
   ],
   providers: [
     HeroService,

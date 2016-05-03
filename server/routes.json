@@ -1,6 +1,0 @@
-[
-  {
-    "/api/": "/",
-    "/heroes/_:id": "/heroes/:id"
-  }
-]
