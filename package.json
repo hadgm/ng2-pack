@@ -13,7 +13,7 @@
   },
   "keywords": [],
   "author": "Ha Pham <mahpahh@gmail.com> (http://mahpahh.com)",
-  "license": "ISC",
+  "license": "WTFPL",
   "dependencies": {
     "angular2": "^2.0.0-beta.11",
     "core-js": "^2.2.1",
