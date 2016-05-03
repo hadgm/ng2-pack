@@ -1,6 +1,5 @@
 import {
   describe,
-  ddescribe,
   it,
   expect,
   inject,
@@ -15,7 +14,7 @@ import {
 } from 'angular2/http';
 import {MockBackend, MockConnection} from 'angular2/http/testing';
 import {provide} from 'angular2/core';
-import {HeroService} from './hero.service.ts';
+import {HeroService} from './hero-service.ts';
 
 const HeroList: Hero[] = [
   {_id: '1', name: 'Razor'},
@@ -74,7 +73,7 @@ describe('HeroService', () => {
 
 /** Helpers */
 function mockrespond(backend, res, error?) {
-  backend.connections.subscribe((connection) => {
+  backend.connections.subscribe((connection: MockConnection) => {
     connection.mockRespond(new Response(new ResponseOptions(res)));
   });
 }

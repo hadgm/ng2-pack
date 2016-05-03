@@ -1,7 +1,7 @@
 import {Component} from 'angular2/core';
 import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
 import {HTTP_PROVIDERS} from 'angular2/http';
-import {HeroService} from './../../services/hero';
+import {HeroService} from './../../services/hero/hero-service.ts';
 import {LoginComponent} from './../login/login-component.ts';
 import {DashboardComponent} from './../dashboard/dashboard-component.ts';
 
@@ -29,7 +29,7 @@ import {DashboardComponent} from './../dashboard/dashboard-component.ts';
     path: '/login',
     name: 'Login',
     component: LoginComponent,
-  }
+  },
 ])
 export class AppComponent {
   public title: string = 'Heroes';
