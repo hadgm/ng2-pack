@@ -44,10 +44,8 @@ describe('HeroService', () => {
     /**
      * assumtion
      */
-    backend.connections.subscribe((connection: MockConnection) => {
-      connection.mockRespond(new Response(new ResponseOptions({
-        body: {data: HeroList},
-      })));
+    mockrespond(backend, {
+      body: {data: HeroList},
     });
 
     heroService.getHeroes()
@@ -59,4 +57,24 @@ describe('HeroService', () => {
         }
       );
   });
+
+  it('should get single hero', () => {
+    mockrespond(backend, {
+      body: HeroList[0],
+    });
+
+    heroService.getHeroById('1')
+      .subscribe(res => {
+        expect(res).toBeTruthy();
+        expect(res._id).toBeDefined();
+        expect(res.name).toBeDefined();
+      });
+  });
 });
+
+/** Helpers */
+function mockrespond(backend, res, error?) {
+  backend.connections.subscribe((connection) => {
+    connection.mockRespond(new Response(new ResponseOptions(res)));
+  });
+}

@@ -33,7 +33,7 @@ export class HeroService {
 
     let body = JSON.stringify(data);
     let option = new RequestOptions({
-      headers: new Headers({'content-type': 'application/json'})
+      headers: new Headers({'content-type': 'application/json'}),
     });
 
     return this.http.put(this.endpoint + '/' + data._id, body, option)
