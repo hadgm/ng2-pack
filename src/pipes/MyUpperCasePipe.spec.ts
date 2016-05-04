@@ -4,7 +4,7 @@ describe('MyUpperCasePipe', () => {
   let pipe: MyUpperCasePipe;
 
   beforeEach(() => {
-    pipe = new MyUpperCasePipe()
+    pipe = new MyUpperCasePipe();
   });
 
   it('transform abc to ABC', () => {
@@ -19,4 +19,4 @@ describe('MyUpperCasePipe', () => {
     expect(pipe.transform('ABC DEF')).toEqual('ABC DEF');
   });
 
-})
+});

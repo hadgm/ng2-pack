@@ -14,7 +14,9 @@ export class WikiService {
 
   constructor(
     private jsonp: Jsonp
-  ){}
+  ) {
+    //
+  }
 
   public search(term: string): Observable<IWikiItem[]> {
     console.log(term);
