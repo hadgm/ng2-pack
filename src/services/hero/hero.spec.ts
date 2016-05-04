@@ -5,15 +5,15 @@ import {
   inject,
   beforeEachProviders,
   beforeEach,
-} from 'angular2/testing';
+} from '@angular/testing';
 import {
   Http,
   BaseResponseOptions,
   Response,
   ResponseOptions,
-} from 'angular2/http';
-import {MockBackend, MockConnection} from 'angular2/http/testing';
-import {provide} from 'angular2/core';
+} from '@angular/http';
+import {MockBackend, MockConnection} from '@angular/http/testing';
+import {provide} from '@angular/core';
 import {HeroService} from './hero-service.ts';
 
 const HeroList: Hero[] = [

@@ -9,26 +9,36 @@ import {
   MockDirectiveResolver,
   MockViewResolver,
   setBaseTestProviders,
-} from 'angular2/testing';
-import {TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS} from'angular2/platform/testing/browser';
-import {provide} from 'angular2/core';
-import {DirectiveResolver, ViewResolver} from 'angular2/compiler';
+} from '@angular/testing';
+import {
+  TEST_BROWSER_STATIC_APPLICATION_PROVIDERS,
+  TEST_BROWSER_STATIC_PLATFORM_PROVIDERS,
+} from'@angular/platform-browser/testing';
+import {provide} from '@angular/core';
+import {
+  DirectiveResolver,
+  ViewResolver,
+  COMPILER_PROVIDERS,
+  XHR,
+} from '@angular/compiler';
 import {HeroService} from './../../services/hero/hero-service.ts';
-import {HTTP_PROVIDERS} from 'angular2/http';
-import {RouteRegistry, ROUTER_PRIMARY_COMPONENT, Router} from 'angular2/router';
-import {RootRouter} from 'angular2/src/router/router';
-import {Location} from 'angular2/platform/common';
-import {SpyLocation} from 'angular2/router/testing';
+import {HTTP_PROVIDERS} from '@angular/http';
+import {RouteRegistry, ROUTER_PRIMARY_COMPONENT, Router} from '@angular/router-deprecated';
+import {RootRouter} from '@angular/router-deprecated/src/router';
+import {Location} from '@angular/common';
+import {SpyLocation} from '@angular/testing';
 import {DashboardComponent} from './dashboard-component.ts';
 import {AppComponent} from './../app/app-component.ts';
 
 describe('Dashboard Component', () => {
-  setBaseTestProviders(TEST_BROWSER_PLATFORM_PROVIDERS, TEST_BROWSER_APPLICATION_PROVIDERS);
+  setBaseTestProviders(TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS);
   let tcb: TestComponentBuilder;
 
   beforeEachProviders(() => [
     TestComponentBuilder,
     HTTP_PROVIDERS,
+    XHR,
+    COMPILER_PROVIDERS,
     RouteRegistry,
     provide(Location, {useClass: SpyLocation}),
     provide(Router, {useClass: RootRouter}),
@@ -44,8 +54,13 @@ describe('Dashboard Component', () => {
   }));
 
   it('should render the title', () => {
-    return tcb.createAsync(DashboardComponent)
-      .then(fixture => {
+
+    let a =  tcb.createAsync(DashboardComponent)
+    console.log(a);
+
+    a.then(fixture => {
+        console.log(fixture);
+
         fixture.detectChanges();
         let element = fixture.nativeElement;
         expect(element.querySelector('h3').innerText).toContain('Top heroes');

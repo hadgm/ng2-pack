@@ -7,6 +7,6 @@ import 'style!css!sass!./styles/index.scss';
 // or import all
 import 'rxjs/Rx';
 
-import {bootstrap} from 'angular2/platform/browser';
+import {bootstrapStatic} from '@angular/platform-browser';
 import {AppComponent} from './components/app/app-component';
-bootstrap(AppComponent);
+bootstrapStatic(AppComponent, []);

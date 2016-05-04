@@ -1,6 +1,6 @@
-import {Component} from 'angular2/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from 'angular2/router';
-import {HTTP_PROVIDERS} from 'angular2/http';
+import {Component} from '@angular/core';
+import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {HTTP_PROVIDERS} from '@angular/http';
 import {HeroService} from './../../services/hero/hero-service.ts';
 import {LoginComponent} from './../login/login-component.ts';
 import {DashboardComponent} from './../dashboard/dashboard-component.ts';

@@ -1,17 +1,15 @@
 import {
   Component,
   OnInit,
-} from 'angular2/core';
-import {HeroEditorComponent} from '../hero-editor/hero-editor.component.ts';
-import {HeroService, Hero} from './../../services/hero';
-import {ROUTER_DIRECTIVES} from 'angular2/router';
+} from '@angular/core';
+import {HeroService} from './../../services/hero/hero-service.ts';
+import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 @Component({
   selector: 'heroes',
   templateUrl: require('./heroes.tpl.html'),
   styles: [require('./heroes.scss')],
   directives: [
-    HeroEditorComponent,
     ROUTER_DIRECTIVES,
   ],
 })
