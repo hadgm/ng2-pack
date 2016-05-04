@@ -11,15 +11,13 @@ import {
   setBaseTestProviders,
 } from '@angular/testing';
 import {
-  TEST_BROWSER_STATIC_APPLICATION_PROVIDERS,
-  TEST_BROWSER_STATIC_PLATFORM_PROVIDERS,
-} from'@angular/platform-browser/testing';
+  TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS,
+  TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS,
+} from'@angular/platform-browser-dynamic/testing';
 import {provide} from '@angular/core';
 import {
   DirectiveResolver,
   ViewResolver,
-  COMPILER_PROVIDERS,
-  XHR,
 } from '@angular/compiler';
 import {HeroService} from './../../services/hero/hero-service.ts';
 import {HTTP_PROVIDERS} from '@angular/http';
@@ -31,14 +29,12 @@ import {DashboardComponent} from './dashboard-component.ts';
 import {AppComponent} from './../app/app-component.ts';
 
 describe('Dashboard Component', () => {
-  setBaseTestProviders(TEST_BROWSER_STATIC_PLATFORM_PROVIDERS, TEST_BROWSER_STATIC_APPLICATION_PROVIDERS);
+  setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
   let tcb: TestComponentBuilder;
 
   beforeEachProviders(() => [
     TestComponentBuilder,
     HTTP_PROVIDERS,
-    XHR,
-    COMPILER_PROVIDERS,
     RouteRegistry,
     provide(Location, {useClass: SpyLocation}),
     provide(Router, {useClass: RootRouter}),
@@ -53,17 +49,15 @@ describe('Dashboard Component', () => {
     tcb = tcb_;
   }));
 
-  it('should render the title', () => {
-
-    let a =  tcb.createAsync(DashboardComponent)
-    console.log(a);
-
-    a.then(fixture => {
-        console.log(fixture);
-
+  it('should render the title', (done) => {
+    return tcb.createAsync(DashboardComponent)
+      .then(fixture => {
+        let component = fixture.componentInstance;
+        component.title = 'Top_heroes';
         fixture.detectChanges();
         let element = fixture.nativeElement;
-        expect(element.querySelector('h3').innerText).toContain('Top heroes');
+        expect(element.querySelector('h3').innerText).toContain('Top_heroes');
+        done();
       });
   });
 });

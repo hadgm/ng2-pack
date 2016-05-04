@@ -9,6 +9,7 @@ import {Router} from '@angular/router-deprecated';
 })
 export class DashboardComponent implements OnInit {
   public topHeroes: Hero[];
+  public title: string;
 
   constructor(
     private heroService: HeroService,
