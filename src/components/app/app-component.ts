@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {RouteConfig, ROUTER_DIRECTIVES, ROUTER_PROVIDERS} from '@angular/router-deprecated';
+import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from '@angular/router';
 import {HTTP_PROVIDERS} from '@angular/http';
 import {HeroService} from './../../services/hero/hero-service.ts';
 import {LoginComponent} from './../login/login-component.ts';
@@ -18,16 +18,13 @@ import {DashboardComponent} from './../dashboard/dashboard-component.ts';
     HTTP_PROVIDERS,
   ],
 })
-@RouteConfig([
+@Routes([
   {
     path: '/',
-    name: 'Dashboard',
     component: DashboardComponent,
-    useAsDefault: true,
   },
   {
     path: '/login',
-    name: 'Login',
     component: LoginComponent,
   },
 ])

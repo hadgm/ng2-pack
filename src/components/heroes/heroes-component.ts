@@ -3,15 +3,12 @@ import {
   OnInit,
 } from '@angular/core';
 import {HeroService} from './../../services/hero/hero-service.ts';
-import {ROUTER_DIRECTIVES} from '@angular/router-deprecated';
 
 @Component({
   selector: 'heroes',
   templateUrl: require('./heroes.tpl.html'),
   styles: [require('./heroes.scss')],
-  directives: [
-    ROUTER_DIRECTIVES,
-  ],
+  directives: [],
 })
 export class HeroesComponent implements OnInit {
   public selectedHero: Hero;

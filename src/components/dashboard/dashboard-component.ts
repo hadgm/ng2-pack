@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {HeroService} from './../../services/hero/hero-service.ts';
-import {Router} from '@angular/router-deprecated';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'dashboard',
@@ -23,13 +23,15 @@ export class DashboardComponent implements OnInit {
           data = data.sort((h1, h2) => h2.score - h1.score);
           this.topHeroes = data.slice(0, 5);
         },
-
-        error => console.log(error)
+        error => console.log(error),
+        () => {
+          this.topHeroes = [];
+        }
        );
   }
 
   public goToDetail(hero) {
-    let link = ['HeroEditor', { id: hero._id }];
+    let link = ['/', { id: hero._id }];
     this.router.navigate(link);
   }
 }
