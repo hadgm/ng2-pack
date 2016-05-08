@@ -32,7 +32,7 @@ const commonConfig = {
   module: {
     loaders: [
       {
-        test: /components\/.*\.scss$/,
+        test: /\.scss$/,
         loaders: ['raw', 'sass'],
       },
       {

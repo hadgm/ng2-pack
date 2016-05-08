@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
-import {ROUTER_DIRECTIVES, ROUTER_PROVIDERS, Routes} from '@angular/router';
+import {ROUTER_DIRECTIVES, Routes} from '@angular/router';
 import {HTTP_PROVIDERS} from '@angular/http';
-import {HeroService} from './../../services/hero/hero-service.ts';
-import {LoginComponent} from './../login/login-component.ts';
-import {DashboardComponent} from './../dashboard/dashboard-component.ts';
+import {LoginComponent} from './login/login-component.ts';
+import {DashboardComponent} from './dashboard/dashboard-component.ts';
+import { HeroService } from './heroes/hero-service.ts';
 
 @Component({
   selector: 'app',
@@ -14,7 +14,6 @@ import {DashboardComponent} from './../dashboard/dashboard-component.ts';
   ],
   providers: [
     HeroService,
-    ROUTER_PROVIDERS,
     HTTP_PROVIDERS,
   ],
 })

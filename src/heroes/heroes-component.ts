@@ -2,7 +2,7 @@ import {
   Component,
   OnInit,
 } from '@angular/core';
-import {HeroService} from './../../services/hero/hero-service.ts';
+import {HeroService} from './hero-service.ts';
 
 @Component({
   selector: 'heroes',

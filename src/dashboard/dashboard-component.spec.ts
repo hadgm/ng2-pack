@@ -19,14 +19,14 @@ import {
   DirectiveResolver,
   ViewResolver,
 } from '@angular/compiler';
-import {HeroService} from './../../services/hero/hero-service.ts';
+import {HeroService} from './../heroes/hero-service.ts';
 import {HTTP_PROVIDERS} from '@angular/http';
-import {RouteRegistry, ROUTER_PRIMARY_COMPONENT, Router} from '@angular/router-deprecated';
-import {RootRouter} from '@angular/router-deprecated/src/router';
+import {Router} from '@angular/router';
+import {ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
 import {Location} from '@angular/common';
 import {SpyLocation} from '@angular/testing';
 import {DashboardComponent} from './dashboard-component.ts';
-import {AppComponent} from './../app/app-component.ts';
+import {AppComponent} from './../app-component.ts';
 
 describe('Dashboard Component', () => {
   setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
@@ -35,10 +35,8 @@ describe('Dashboard Component', () => {
   beforeEachProviders(() => [
     TestComponentBuilder,
     HTTP_PROVIDERS,
-    RouteRegistry,
+    ROUTER_FAKE_PROVIDERS,
     provide(Location, {useClass: SpyLocation}),
-    provide(Router, {useClass: RootRouter}),
-    provide(ROUTER_PRIMARY_COMPONENT, {useClass: AppComponent}),
     provide(DirectiveResolver, {useClass: MockDirectiveResolver}),
     provide(ViewResolver, {useClass: MockViewResolver}),
     HeroService,

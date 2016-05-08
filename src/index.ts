@@ -1,5 +1,5 @@
 import './index.html';
-import 'style!css!sass!./styles/index.scss';
+// import 'style!css!sass!./styles/index.scss';
 // Observable default come with a few operator, import some manually
 // import 'rxjs/add/operator/map';
 // import 'rxjs/add/operator/catch';
@@ -11,7 +11,7 @@ import {
   PLATFORM_DIRECTIVES,
   provide
 } from '@angular/core';
-import {AppComponent} from './components/app/app-component';
+import {AppComponent} from './app-component.ts';
 import {
   ROUTER_DIRECTIVES,
   ROUTER_PROVIDERS,
