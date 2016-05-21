@@ -1,0 +1,14 @@
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: $color--page-background;
+  font-family: $font--sans;
+  font-size: 1.4em;
+  margin: 0;
+}

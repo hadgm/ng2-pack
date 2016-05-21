@@ -27,10 +27,9 @@
       true,
       140
     ],
-    "member-access": true,
+    "member-access": false,
     "member-ordering": [
       true,
-      "public-before-private",
       "static-before-instance",
       "variables-before-functions"
     ],

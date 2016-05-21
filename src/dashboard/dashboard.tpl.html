@@ -1,9 +1,6 @@
 <h3>
   {{title}}
 </h3>
-<div class="top-heroes">
-  <div *ngFor="let hero of topHeroes" class="hero-box"
-    (click)="goToDetail(hero)">
-    <h4>{{hero.name}}</h4>
-  </div>
+<div>
+  <user-form [model]="user"></user-form>
 </div>

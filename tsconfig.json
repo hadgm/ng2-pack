@@ -9,6 +9,9 @@
     "experimentalDecorators": true,
     "moduleResolution": "node"
   },
+  "fileGlobs": [
+    "src/**/*.d.ts"
+  ],
   "exclude": [
     "node_modules",
     "typings/main",

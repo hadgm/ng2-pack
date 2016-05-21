@@ -19,42 +19,32 @@ import {
   DirectiveResolver,
   ViewResolver,
 } from '@angular/compiler';
-import {HeroService} from './../heroes/hero-service.ts';
-import {HTTP_PROVIDERS} from '@angular/http';
-import {Router} from '@angular/router';
-import {ROUTER_FAKE_PROVIDERS } from '@angular/router/testing';
-import {Location} from '@angular/common';
-import {SpyLocation} from '@angular/testing';
-import {DashboardComponent} from './dashboard-component.ts';
-import {AppComponent} from './../app-component.ts';
+import {LoginComponent} from './login.component.ts';
 
-describe('Dashboard Component', () => {
+describe('Login Component', () => {
   setBaseTestProviders(TEST_BROWSER_DYNAMIC_PLATFORM_PROVIDERS, TEST_BROWSER_DYNAMIC_APPLICATION_PROVIDERS);
   let tcb: TestComponentBuilder;
 
   beforeEachProviders(() => [
     TestComponentBuilder,
-    HTTP_PROVIDERS,
-    ROUTER_FAKE_PROVIDERS,
-    provide(Location, {useClass: SpyLocation}),
     provide(DirectiveResolver, {useClass: MockDirectiveResolver}),
     provide(ViewResolver, {useClass: MockViewResolver}),
-    HeroService,
-    AppComponent,
+    LoginComponent,
   ]);
 
   beforeEach(inject([TestComponentBuilder], (tcb_) => {
     tcb = tcb_;
   }));
 
-  it('should render the title', (done) => {
-    return tcb.createAsync(DashboardComponent)
-      .then(fixture => {
-        let component = fixture.componentInstance;
-        component.title = 'Top_heroes';
-        fixture.detectChanges();
+  it('should render form', (done) => {
+    tcb.createAsync(LoginComponent)
+      .then((fixture) => {
         let element = fixture.nativeElement;
-        expect(element.querySelector('h3').innerText).toContain('Top_heroes');
+        fixture.detectChanges();
+        let form = element.querySelector('form');
+        expect(form).toBeTruthy();
+        expect(form.querySelector('input[name="username"]')).toBeTruthy();
+        expect(form.querySelector('input[name="password"]')).toBeTruthy();
         done();
       });
   });
